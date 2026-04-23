@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - MediControl</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="auth-header" style="text-align: center; margin-bottom: 30px;">
+            <h2 style="color: #004a89;">🏥 MediControl</h2>
+            <p>Connectez-vous à votre espace</p>
+        </div>
+
+        <div class="auth-tabs" style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <button onclick="showLogin()" style="flex:1; cursor:pointer;">Connexion</button>
+            <button onclick="showRegister()" style="flex:1; cursor:pointer;">S'inscrire</button>
+        </div>
+
+        <form id="login-form" onsubmit="event.preventDefault(); login();">
+            <input type="email" id="email" placeholder="Email" required style="width:100%; padding:10px; margin-bottom:10px;">
+            <input type="password" id="password" placeholder="Mot de passe" required style="width:100%; padding:10px; margin-bottom:20px;">
+            <button type="submit" class="btn-main" style="width:100%; border:none; cursor:pointer;">Se connecter</button>
+        </form>
+
+        <form id="register-form" class="hidden" onsubmit="event.preventDefault(); register();">
+            <input type="text" id="reg-nom" placeholder="Nom" required style="width:100%; padding:10px; margin-bottom:10px;">
+            <input type="text" id="reg-prenom" placeholder="Prénom" required style="width:100%; padding:10px; margin-bottom:10px;">
+            <input type="email" id="reg-email" placeholder="Email" required style="width:100%; padding:10px; margin-bottom:10px;">
+            <input type="password" id="reg-password" placeholder="Mot de passe" required style="width:100%; padding:10px; margin-bottom:20px;">
+            <button type="submit" class="btn-main" style="width:100%; border:none; cursor:pointer; background:#27ae60;">Créer mon compte</button>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

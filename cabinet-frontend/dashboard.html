@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Cabinet Médical - Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-icon">🏥</span>
+                <span class="logo-text">MediControl</span>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="#" class="active">📊 Tableau de bord</a>
+                <a href="#">👥 Liste des Patients</a>
+                <a href="#">📅 Agenda & RDV</a>
+                <a href="#">🩺 Consultations</a>
+                <a href="#">💊 Ordonnances</a>
+                <div class="divider"></div>
+                <a href="#" onclick="logout()" class="logout">🚪 Déconnexion</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="welcome-text">
+                    <h1>Bonjour, <span id="user-name">Docteur</span></h1>
+                    <p>Voici l'activité de votre cabinet aujourd'hui.</p>
+                </div>
+                <div class="user-profile">
+                    <span class="notif-icon">🔔</span>
+                    <div class="profile-badge">Admin</div>
+                </div>
+            </header>
+
+            <div class="stats-grid">
+                <div class="card stat-card">
+                    <div class="icon-circle blue">👥</div>
+                    <div>
+                        <h3 id="count-patients">0</h3>
+                        <p>Patients total</p>
+                    </div>
+                </div>
+                <div class="card stat-card">
+                    <div class="icon-circle green">📅</div>
+                    <div>
+                        <h3 id="count-rdv">3</h3>
+                        <p>RDV aujourd'hui</p>
+                    </div>
+                </div>
+                <div class="card stat-card">
+                    <div class="icon-circle orange">🩺</div>
+                    <div>
+                        <h3>12</h3>
+                        <p>Consultations/mois</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="card table-container">
+                    <div class="card-header">
+                        <h2>Derniers Patients Enregistrés</h2>
+                        <button class="btn-primary" onclick="ouvrirModal()">+ Nouveau Patient</button>
+                    </div>
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Téléphone</th>
+                                <th>Dernière Visite</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpsTableau">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>
